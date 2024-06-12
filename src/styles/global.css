@@ -1,0 +1,136 @@
+/* src/assets/global.css */
+:root {
+  --background-default: #f9f9f9;
+  --background-dark: #121212;
+  --text-color-default: #333;
+  --intro-text-color-default: #cacaca;
+  --text-color-dark: #f5f5f5;
+  --border-color-default: #ddd;
+  --border-color-dark: #333;
+
+  /* Цвет логотипа для светлой темы */
+  --logo-color-default: #000;
+  /* Цвет логотипа для темной темы */
+  --logo-color-dark: #fff;
+
+  --highlight-background-color: #ffffff; /* Светлый фон для активной кнопки */
+  --highlight-text-color: #333; /* Светлый цвет текста для активной кнопки */
+  --highlight-background-color-dark: #555; /* Тёмный фон для активной кнопки */
+  --highlight-text-color-dark: #ffffff; /* Тёмный цвет текста для активной кнопки */
+
+  /* Цвета ссылок */
+  --link-color-default: grey;
+  --link-color-hover: black;
+  --link-color-dark: lightgrey;
+  --link-color-hover-dark: white;
+}
+
+body {
+  background-color: var(--background-default);
+}
+
+.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-theme header,
+.dark-theme .footer {
+  border-color: var(--border-color-dark);
+}
+
+.dark-theme .nav-link,
+.dark-theme .social-link,
+.dark-theme .mobile-nav-link,
+.dark-theme .mobile-social-link,
+.dark-theme .description,
+.dark-theme h1,
+.dark-theme a {
+  color: var(--text-color-dark);
+}
+
+.dark-theme .icon,
+.dark-theme .theme-icon,
+.dark-theme .social-icon,
+.dark-theme .expand-icon,
+.dark-theme .collapse-icon,
+.dark-theme .copy-icon {
+  filter: invert(100%);
+}
+
+/* Стили для светлой темы */
+.language-toggle button {
+  opacity: 0.6; /* Сделайте кнопки немного прозрачными */
+  transition: opacity 0.3s, background-color 0.3s;
+  border-radius: 15px;
+  color: white;
+}
+
+.language-toggle button.active,
+.language-toggle button:hover {
+  opacity: 1; /* Полная непрозрачность для активной и при наведении */
+}
+
+/* Стили для тёмной темы */
+.dark-theme .language-toggle button {
+  opacity: 0.6; /* Сделайте кнопки немного прозрачными */
+}
+
+.dark-theme .language-toggle button.active,
+.dark-theme .language-toggle button:hover {
+  opacity: 1; /* Полная непрозрачность для активной и при наведении */
+  background-color: var(--highlight-background-color-dark);
+  color: var(--highlight-text-color-dark); /* Для активной кнопки */
+}
+
+/* Дополнительно, если вы хотите, чтобы фон активной кнопки и при наведении также изменялся в светлой теме */
+.language-toggle button.active,
+.language-toggle button:hover {
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-text-color); /* Цвет текста для активной кнопки */
+}
+
+.dark-theme .slider {
+  background-color: var(--text-color-dark);
+}
+
+.dark-theme .burger-menu span {
+  background-color: var(--text-color-dark);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  fill: var(--logo-color-default);
+}
+
+.dark-theme .logo {
+  fill: var(--logo-color-dark);
+}
+
+/* Стили для ссылок */
+a {
+  color: var(--link-color-default);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+.dark-theme a {
+  color: var(--link-color-dark);
+}
+
+.dark-theme a:hover {
+  color: var(--link-color-hover-dark);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 20px; /* Уменьши размер логотипа */
+        height: 20px; /* Убедись, что высота соответствует ширине, чтобы сохранить пропорции */
+    }
+    /* ... другие стили ... */
+}

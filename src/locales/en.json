@@ -1,0 +1,152 @@
+{
+  "intro": {
+    "preName": "My name is",
+    "name": "Seryozha Okhta",
+    "postName": "; I specialize in interface development and design. My portfolio includes work with data visualization, web applications, and educational content.",
+    "welcome": "I use Vue.js, Node.js, Three.js, and am passionate about 3D and interactive graphics."
+  },
+  "nav": {
+    "past": "Past",
+    "today": "Today",
+    "sketches": "Sketches"
+  },
+  "social": {
+    "github": "Github",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  },
+  "theme": {
+    "toggle": "Toggle Theme"
+  },
+  "language": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "mainPage": {
+    "sections": {
+      "educational_videos": {
+        "title": "educational videos",
+        "description": "This is my video blog, where I publish educational and enlightening videos to share my passion for art and history."
+      },
+      "envisioning_information": {
+        "title": "envisioning information",
+        "description": "This is my blog, where I explore and experiment with data visualization, interactive and generative design, sharing my thoughts on various techniques and tools."
+      },
+      "cgi": {
+        "title": "cgi",
+        "description": "This is my digital portfolio, showcasing my work created in Cinema 4D, TouchDesigner, and other software, sometimes for clients and sometimes just for fun."
+      },
+      "website_development": {
+        "title": "website development",
+        "description": "soon →"
+      },
+      "app_drafts": {
+        "title": "app drafts",
+        "description": "soon, this place will host the landing page for my application; and eventually, a full website..."
+      },
+      "about_me": {
+        "title": "about me",
+        "description": ""
+      }
+    }
+  },
+  "footer": {
+    "copy": "copy!",
+    "email": "seryozha.okhta@gmail.com"
+  },
+  "webDev": {
+    "title": "Website Development",
+    "description": "This section showcases my work in web development, featuring various projects from single-page applications to complex platforms.",
+    "learnMore": "Learn more",
+    "projects": {
+      "project1": {
+        "title": "Smart greenhouses",
+        "description": "This is a description for Project One.",
+        "screenshot": "/images/project1.jpg",
+        "animation": "/images/project1.gif",
+        "link": "greenhouse-react.vercel.app",
+        "tags": ["HTML", "CSS", "JavaScript"]
+      }
+    }
+  },
+  "envisioningInf": {
+    "title": "Envisioning Information",
+    "description": "Here, I delve into the art and science of data visualization, presenting my experiments and insights into effective information design.",
+    "posts": [
+      {
+        "id": "post1",
+        "title": "Data Visualization Techniques",
+        "summary": "An overview of modern data visualization techniques and tools.",
+        "link": "http://example.com/post1"
+      },
+      {
+        "id": "post2",
+        "title": "Interactive Graphics",
+        "summary": "Exploring the world of interactive graphics and their impact on user experience.",
+        "link": "http://example.com/post2"
+      }
+    ]
+  },
+  "cgi": {
+    "title": "Computer-Generated Imagery",
+    "description": "Explore my CGI creations, ranging from 3D modeling and animation to visual effects and interactive installations.",
+    "images": [
+      {
+        "id": "image1",
+        "src": "/src/assets/images/3_cgiPage/1 521.png",
+        "alt": "A stunning CGI creation"
+      },
+      {
+        "id": "image2",
+        "src": "/src/assets/images/3_cgiPage/1 521.png",
+        "alt": "Another example of CGI work"
+      }
+    ]
+  },
+  "tags": {
+    "HTML": "HTML",
+    "CSS": "CSS",
+    "JavaScript": "JavaScript",
+    "Vue.js": "Vue.js",
+    "Node.js": "Node.js"
+  },
+  "educationalVideos": {
+    "title": "Educational Videos",
+    "description": "Here I share my knowledge on various topics through engaging video content."
+  },
+  "appDrafts": {
+    "title": "App Drafts",
+    "description": "A sneak peek into the apps I'm currently developing."
+  },
+  "aboutMePage": {
+    "greeting": "Hi there! My name is Seryozha Okhta",
+    "intro": "I have experience in editing, typography, 3D graphics and programming. My work primarily revolves around educational content, data visualization, and exploring interactive and generative design techniques",
+    "skillsTitle": "My skills",
+    "skills": {
+      "editing": {
+        "title": "Editing",
+        "description": "I write and edit texts, both my own and others. Additionally, I create scripts for my own video content on the history of art and culture."
+      },
+      "interactiveDesign": {
+        "title": "Interactive Design",
+        "description": "I am honing my skills in interactive design, primarily using the TouchDesigner software along with two libraries: Processing 4 (Java) and p5.js (JavaScript)."
+      },
+      "webDevelopment": {
+        "title": "Web Development",
+        "description": "I develop websites both as a designer and a programmer. As a designer, I am proficient in both 3D and 2D software, such as Cinema 4D and After Effects. As a developer, I work with CSS, JavaScript, Java and Python. This enables me to handle projects of any complexity, ranging from 3D modeling to minimalist animation."
+      },
+      "design3D": {
+        "title": "3D Design",
+        "description": "Although my focus is primarily on 3D design, I also contemplate how I can apply my knowledge of modeling and texturing in various fields and disciplines. Currently, I mainly utilize my skills in educational videos."
+      },
+      "dataVisualization": {
+        "title": "Data Visualization",
+        "description": "Recently, I have actively delved into data visualization, ranging from simple statistics to complex representations like wind patterns or migration. I intend to incorporate this expertise into educational content."
+      },
+      "programming": {
+        "title": "Programming",
+        "description": "I am studying several languages: CSS, JavaScript, Java, and Python. I am considering developing my own application, so it is important for me to understand the capabilities offered by each of these languages."
+      }
+    }
+  }
+}
