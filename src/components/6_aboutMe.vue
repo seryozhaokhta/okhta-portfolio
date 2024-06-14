@@ -1,17 +1,16 @@
 <!-- components/6_aboutMe.vue -->
-
 <template>
     <div class="about-me-page">
-        <div class="cell">
+        <div class="content">
             <h2>{{ $t('aboutMePage.greeting') }}</h2>
             <h3>{{ $t('aboutMePage.intro') }}</h3>
             <h3>{{ $t('aboutMePage.skillsTitle') }}</h3>
-            <div v-for="(skill, index) in skills" :key="index" class="skill-cell">
-                <h4>
-                    <img :src="getIconPath(index)" :alt="skill.title" class="icon" />{{
-                        $t(`aboutMePage.skills.${index}.title`) }}
-                </h4>
-                <p>{{ $t(`aboutMePage.skills.${index}.description`) }}</p>
+            <div v-for="(skill, index) in skills" :key="index" class="skill">
+                <img :src="getIconPath(index)" :alt="skill.title" class="icon" />
+                <div class="skill-text">
+                    <h4>{{ $t(`aboutMePage.skills.${index}.title`) }}</h4>
+                    <p>{{ $t(`aboutMePage.skills.${index}.description`) }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -58,20 +57,68 @@ export default {
 </script>
 
 <style scoped>
-.cell {
-    margin-bottom: 20px;
+.content {
+    padding: 20px;
 }
 
-.skill-cell {
+.skill {
     display: flex;
-    align-items: center;
-    /* Добавили для выравнивания иконки с текстом */
+    align-items: flex-start;
     margin-bottom: 20px;
+    flex-direction: column;
+    /* Добавлено для выравнивания в колонку */
+    text-align: left;
+    /* Добавлено для выравнивания по левому краю */
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    /* Изменено с margin-right для выравнивания в колонку */
+    transition: filter 0.3s ease;
+}
+
+.skill-text {
+    flex-grow: 1;
+}
+
+.dark-theme .icon {
+    filter: invert(100%);
+}
+
+h2,
+h3 {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
 }
 </style>
