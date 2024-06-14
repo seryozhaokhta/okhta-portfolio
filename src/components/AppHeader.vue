@@ -4,12 +4,12 @@
     <header>
         <div class="container">
             <div class="left">
-                <a href="#" class="nav-link logo-link">
+                <router-link to="/" class="nav-link logo-link">
                     <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M0 12C6.6274 12 12 6.6274 12 0C12 0 12 0 12 0C12 6.62742 17.3726 12 24 12C17.3737 12 12.0018 17.3707 12 23.9966C11.9981 17.3707 6.62627 12 0 12Z" />
                     </svg>
-                </a>
+                </router-link>
             </div>
             <div class="center">
                 <a href="#" class="nav-link">
