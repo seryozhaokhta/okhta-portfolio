@@ -120,33 +120,33 @@
   },
   "aboutMePage": {
     "greeting": "Hi there! My name is Seryozha Okhta",
-    "intro": "I have experience in editing, typography, 3D graphics and programming. My work primarily revolves around educational content, data visualization, and exploring interactive and generative design techniques",
+    "intro": "I have experience in editing, typography, 3D graphics and programming. My work primarily revolves around educational content, data visualization, and exploring interactive and generative design techniques.",
     "skillsTitle": "My skills",
-    "skills": {
-      "editing": {
+    "skills": [
+      {
         "title": "Editing",
         "description": "I write and edit texts, both my own and others. Additionally, I create scripts for my own video content on the history of art and culture."
       },
-      "interactiveDesign": {
+      {
         "title": "Interactive Design",
         "description": "I am honing my skills in interactive design, primarily using the TouchDesigner software along with two libraries: Processing 4 (Java) and p5.js (JavaScript)."
       },
-      "webDevelopment": {
+      {
         "title": "Web Development",
         "description": "I develop websites both as a designer and a programmer. As a designer, I am proficient in both 3D and 2D software, such as Cinema 4D and After Effects. As a developer, I work with CSS, JavaScript, Java and Python. This enables me to handle projects of any complexity, ranging from 3D modeling to minimalist animation."
       },
-      "design3D": {
+      {
         "title": "3D Design",
         "description": "Although my focus is primarily on 3D design, I also contemplate how I can apply my knowledge of modeling and texturing in various fields and disciplines. Currently, I mainly utilize my skills in educational videos."
       },
-      "dataVisualization": {
+      {
         "title": "Data Visualization",
         "description": "Recently, I have actively delved into data visualization, ranging from simple statistics to complex representations like wind patterns or migration. I intend to incorporate this expertise into educational content."
       },
-      "programming": {
+      {
         "title": "Programming",
         "description": "I am studying several languages: CSS, JavaScript, Java, and Python. I am considering developing my own application, so it is important for me to understand the capabilities offered by each of these languages."
       }
-    }
+    ]
   }
 }

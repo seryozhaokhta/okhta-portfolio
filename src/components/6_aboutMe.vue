@@ -6,11 +6,12 @@
             <h2>{{ $t('aboutMePage.greeting') }}</h2>
             <h3>{{ $t('aboutMePage.intro') }}</h3>
             <h3>{{ $t('aboutMePage.skillsTitle') }}</h3>
-            <div v-for="(skill, key) in $t('aboutMePage.skills')" :key="key" class="cell">
+            <div v-for="(skill, index) in skills" :key="index" class="skill-cell">
                 <h4>
-                    <img :src="getIconPath(key)" :alt="skill.title" class="icon">{{ skill.title }}
+                    <img :src="getIconPath(index)" :alt="skill.title" class="icon" />{{
+                        $t(`aboutMePage.skills.${index}.title`) }}
                 </h4>
-                <p>{{ skill.description }}</p>
+                <p>{{ $t(`aboutMePage.skills.${index}.description`) }}</p>
             </div>
         </div>
     </div>
@@ -25,24 +26,34 @@ import dataVisualizationIcon from '@/assets/data200.svg';
 import programmingIcon from '@/assets/code200.svg';
 
 export default {
-    name: "AboutMePage",
+    name: 'AboutMePage',
     data() {
         return {
-            icons: {
-                editing: editingIcon,
-                interactiveDesign: interactiveDesignIcon,
-                webDevelopment: webDevelopmentIcon,
-                design3D: design3DIcon,
-                dataVisualization: dataVisualizationIcon,
-                programming: programmingIcon,
-            }
+            icons: [
+                editingIcon,
+                interactiveDesignIcon,
+                webDevelopmentIcon,
+                design3DIcon,
+                dataVisualizationIcon,
+                programmingIcon,
+            ],
+            skillsLength: 6,
         };
     },
-    methods: {
-        getIconPath(key) {
-            return this.icons[key];
+    computed: {
+        skills() {
+            // Создаем массив заглушек, потому что реальные данные загружаются через i18n
+            return Array.from({ length: this.skillsLength }, (_, i) => ({
+                title: this.$t(`aboutMePage.skills.${i}.title`),
+                description: this.$t(`aboutMePage.skills.${i}.description`)
+            }));
         }
-    }
+    },
+    methods: {
+        getIconPath(index) {
+            return this.icons[index];
+        },
+    },
 };
 </script>
 
@@ -51,13 +62,16 @@ export default {
     margin-bottom: 20px;
 }
 
+.skill-cell {
+    display: flex;
+    align-items: center;
+    /* Добавили для выравнивания иконки с текстом */
+    margin-bottom: 20px;
+}
+
 .icon {
     width: 24px;
     height: 24px;
-    margin-right: 10px;
-}
-
-.nowrap {
-    white-space: nowrap;
+    margin-right: 8px;
 }
 </style>
