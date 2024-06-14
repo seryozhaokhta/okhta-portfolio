@@ -1,4 +1,5 @@
 <!-- components/6_aboutMe.vue -->
+ 
 <template>
     <div class="about-me-page">
         <div class="content">

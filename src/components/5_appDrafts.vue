@@ -1,3 +1,5 @@
+<!-- components/5_appDrafts.vue -->
+
 <template>
     <div class="app-drafts-page">
         <h1>{{ $t('appDrafts.title') }}</h1>

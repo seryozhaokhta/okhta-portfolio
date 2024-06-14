@@ -1,4 +1,5 @@
 <!-- MainPage.vue -->
+ 
 <template>
     <main class="main">
         <IntroPage :isDarkTheme="isDarkTheme" />
@@ -24,7 +25,7 @@
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import IntroPage from './IntroPage.vue'; // Убедитесь, что путь к файлу верный
+import IntroPage from './IntroPage.vue';
 
 export default {
     name: 'MainPage',
