@@ -1,8 +1,9 @@
 <!-- components/6_aboutMe.vue -->
- 
+
 <template>
     <div class="about-me-page">
         <div class="content">
+            <img src="@/assets/images/ansiktet mitt.jpg" alt="Моё фото" class="profile-picture">
             <h2>{{ $t('aboutMePage.greeting') }}</h2>
             <h3>{{ $t('aboutMePage.intro') }}</h3>
             <h3>{{ $t('aboutMePage.skillsTitle') }}</h3>
@@ -58,68 +59,104 @@ export default {
 </script>
 
 <style scoped>
+.about-me-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-default);
+    color: var(--text-color-default);
+    border-radius: 8px;
+}
+
 .content {
-    padding: 20px;
+    text-align: left;
 }
 
 .skill {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
-    flex-direction: column;
-    /* Добавлено для выравнивания в колонку */
-    text-align: left;
-    /* Добавлено для выравнивания по левому краю */
+    margin-bottom: 1.5rem;
 }
 
 .icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 10px;
-    /* Изменено с margin-right для выравнивания в колонку */
-    transition: filter 0.3s ease;
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
 }
 
 .skill-text {
     flex-grow: 1;
 }
 
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.profile-picture {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 2rem auto;
+}
+
+.dark-theme .about-me-page {
+    background-color: var(--background-dark);
+    color: var(--text-color-dark);
+}
+
 .dark-theme .icon {
     filter: invert(100%);
 }
 
-h2,
-h3 {
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-h4 {
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
-}
-
-p {
-    margin: 0;
-    line-height: 1.5;
-}
-
 @media (max-width: 768px) {
+    .about-me-page {
+        padding: 1rem;
+    }
+
+    .skill {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
     h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     h3 {
         font-size: 1.25rem;
     }
 
-    h4 {
-        font-size: 1.1rem;
-    }
-
-    .icon {
-        width: 24px;
-        height: 24px;
+    .profile-picture {
+        width: 150px;
+        margin: 0 auto 1.5rem auto;
     }
 }
 </style>
