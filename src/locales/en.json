@@ -112,11 +112,47 @@
   },
   "educationalVideos": {
     "title": "Educational Videos",
-    "description": "Here I share my knowledge on various topics through engaging video content."
+    "description": "Here I share my knowledge on various topics through engaging video content.",
+    "videos": [
+      {
+        "id": "video1",
+        "title": "History of Sumer in 20 minutes",
+        "description": "Later there will be a description about Sumer",
+        "youtubeLink": "https://www.youtube.com/watch?v=your-video-id"
+      },
+      {
+        "id": "video2",
+        "title": "History of Babylon in 20 minutes",
+        "description": "Later there will be a description about Babylon",
+        "youtubeLink": "https://www.youtube.com/watch?v=your-video-id"
+      }
+    ]
   },
   "appDrafts": {
     "title": "App Drafts",
-    "description": "A sneak peek into the apps I'm currently developing."
+    "description": "A sneak peek into the apps I'm currently developing.",
+    "status": "Status",
+    "demoLinkText": "Demo Link",
+    "widgets": [
+      {
+        "name": "Widget 1",
+        "description": "A brief description of Widget 1.",
+        "icon": "/assets/widget1-icon.svg",
+        "screenshot": "/assets/widget1-screenshot.png",
+        "status": "In development",
+        "features": ["Feature 1", "Feature 2", "Feature 3"],
+        "demoLink": "https://example.com/widget1-demo"
+      },
+      {
+        "name": "Widget 2",
+        "description": "A brief description of Widget 2.",
+        "icon": "/assets/widget2-icon.svg",
+        "screenshot": "/assets/widget2-screenshot.png",
+        "status": "In development",
+        "features": ["Feature A", "Feature B", "Feature C"],
+        "demoLink": "https://example.com/widget2-demo"
+      }
+    ]
   },
   "aboutMePage": {
     "greeting": "Hi there! My name is Seryozha Okhta",

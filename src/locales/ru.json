@@ -112,11 +112,47 @@
   },
   "educationalVideos": {
     "title": "Образовательные видео",
-    "description": "Здесь я делюсь своими знаниями по различным темам с помощью увлекательного видеоконтента."
+    "description": "Здесь я делюсь своими знаниями по различным темам с помощью увлекательного видеоконтента.",
+    "videos": [
+      {
+        "id": "video1",
+        "title": "Историе Шумера за 20 минут",
+        "description": "Позже здесь будет описание о Шумере",
+        "youtubeLink": "https://www.youtube.com/watch?v=your-video-id"
+      },
+      {
+        "id": "video2",
+        "title": "История Вавилона за 20 минут",
+        "description": "Позже здесь будет описание о Вавилоне",
+        "youtubeLink": "https://www.youtube.com/watch?v=your-video-id"
+      }
+    ]
   },
   "appDrafts": {
-    "title": "Черновики приложений",
-    "description": "Краткий обзор приложений, которые я сейчас разрабатываю."
+    "title": "Черновики Приложений",
+    "description": "Взгляд на приложения, которые я сейчас разрабатываю.",
+    "status": "Статус",
+    "demoLinkText": "Ссылка на демо",
+    "widgets": [
+      {
+        "name": "Виджет 1",
+        "description": "Краткое описание Виджета 1.",
+        "icon": "/assets/widget1-icon.svg",
+        "screenshot": "/assets/widget1-screenshot.png",
+        "status": "В разработке",
+        "features": ["Функция 1", "Функция 2", "Функция 3"],
+        "demoLink": "https://example.com/widget1-demo"
+      },
+      {
+        "name": "Виджет 2",
+        "description": "Краткое описание Виджета 2.",
+        "icon": "/assets/widget2-icon.svg",
+        "screenshot": "/assets/widget2-screenshot.png",
+        "status": "В разработке",
+        "features": ["Функция A", "Функция B", "Функция C"],
+        "demoLink": "https://example.com/widget2-demo"
+      }
+    ]
   },
   "aboutMePage": {
     "greeting": "Привет! Меня зовут Серёжа Охта",
