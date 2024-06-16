@@ -22,13 +22,8 @@ export default {
     name: "EnvisioningInfPage",
     setup() {
         const { t, tm } = useI18n();
-
-        const posts = computed(() => {
-            return tm('envisioningInf.posts');
-        });
-
         return {
-            posts,
+            posts: computed(() => tm('envisioningInf.posts')),
             t
         };
     }
@@ -37,7 +32,7 @@ export default {
 
 <style scoped>
 .envisioning-inf-page {
-    /* Стили */
+    border: 1px solid #ffffff00;
 }
 
 .post {

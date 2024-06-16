@@ -1,5 +1,5 @@
 <!-- components/1_webDev.vue -->
- 
+
 <template>
     <div class="web-dev-page">
         <h1>{{ $t('webDev.title') }}</h1>
@@ -18,31 +18,28 @@
         </div>
     </div>
 </template>
+
 <script>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import project1Preview from '@/assets/images/1_webDev/project1_preview.jpg';
-import project1Animation from '@/assets/images/1_webDev/project1_animation.gif';
+
+// Вместо импорта каждого изображения, создадим объект с путями:
+const projectImages = {
+    'project1_preview.jpg': require('@/assets/images/1_webDev/project1_preview.jpg'),
+    'project1_animation.gif': require('@/assets/images/1_webDev/project1_animation.gif')
+};
 
 export default {
     name: "webDev",
     setup() {
         const { tm } = useI18n();
 
-        const webDevProjects = computed(() => {
-            return tm('webDev.projects');
-        });
+        const webDevProjects = computed(() => tm('webDev.projects'));
 
-        // Function to resolve image paths dynamically
         const getImageSrc = (imagePath) => {
-            switch (imagePath) {
-                case "/src/assets/images/1_webDev/project1_preview.jpg":
-                    return project1Preview;
-                case "/src/assets/images/1_webDev/project1_animation.gif":
-                    return project1Animation;
-                default:
-                    return imagePath; // Fallback in case of unknown paths
-            }
+            // Ищем изображение в объекте projectImages, 
+            // если не находим - возвращаем исходный путь
+            return projectImages[imagePath.split('/').pop()] || imagePath;
         };
 
         return {
@@ -52,6 +49,7 @@ export default {
     }
 };
 </script>
+
 <style scoped>
 .web-dev-page {
     max-width: 1200px;
