@@ -1,15 +1,15 @@
 <!-- components/1_webDev.vue -->
-
+ 
 <template>
     <div class="web-dev-page">
         <h1>{{ $t('webDev.title') }}</h1>
         <p>{{ $t('webDev.description') }}</p>
         <div class="projects">
-            <div class="project" v-for="project in projects" :key="project.id">
-                <h2>{{ $t(`webDev.projects.${project.id}.title`) }}</h2>
-                <p>{{ $t(`webDev.projects.${project.id}.description`) }}</p>
-                <img :src="project.screenshot" alt="Screenshot" />
-                <img :src="project.animation" alt="Animation" />
+            <div class="project" v-for="(project, id) in webDevProjects" :key="id">
+                <h2>{{ $t(`webDev.projects.${id}.title`) }}</h2>
+                <p>{{ $t(`webDev.projects.${id}.description`) }}</p>
+                <img :src="getImageSrc(project.screenshot)" alt="Screenshot" />
+                <img :src="getImageSrc(project.animation)" alt="Animation" />
                 <a :href="'https://' + project.link" target="_blank">{{ $t('webDev.learnMore') }}</a>
                 <div class="tags">
                     <span class="tag" v-for="tag in project.tags" :key="tag">{{ $t(`tags.${tag}`) }}</span>
@@ -18,29 +18,40 @@
         </div>
     </div>
 </template>
-
 <script>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import project1Preview from '@/assets/images/1_webDev/project1_preview.jpg';
+import project1Animation from '@/assets/images/1_webDev/project1_animation.gif';
+
 export default {
-    name: "WebDevPage",
-    data() {
+    name: "webDev",
+    setup() {
+        const { tm } = useI18n();
+
+        const webDevProjects = computed(() => {
+            return tm('webDev.projects');
+        });
+
+        // Function to resolve image paths dynamically
+        const getImageSrc = (imagePath) => {
+            switch (imagePath) {
+                case "/src/assets/images/1_webDev/project1_preview.jpg":
+                    return project1Preview;
+                case "/src/assets/images/1_webDev/project1_animation.gif":
+                    return project1Animation;
+                default:
+                    return imagePath; // Fallback in case of unknown paths
+            }
+        };
+
         return {
-            projects: [
-                {
-                    id: "project1",
-                    title: "webDev.projects.project1.title",
-                    description: "webDev.projects.project1.description",
-                    screenshot: require("@/assets/images/1_webDev/project1_preview.jpg"),
-                    animation: require("@/assets/images/1_webDev/project1_animation.gif"),
-                    link: "greenhouse-react.vercel.app",
-                    tags: ["HTML", "CSS", "JavaScript"]
-                },
-                // Добавьте другие проекты здесь
-            ]
+            webDevProjects,
+            getImageSrc
         };
     }
 };
 </script>
-
 <style scoped>
 .web-dev-page {
     max-width: 1200px;
@@ -99,7 +110,7 @@ export default {
     transition: background-color 0.3s ease;
 }
 
-/* Стили для темной темы */
+/* Styles for dark theme */
 .dark-theme .project {
     background: var(--background-dark);
     color: var(--text-color-dark);

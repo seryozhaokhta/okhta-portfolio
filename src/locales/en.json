@@ -62,8 +62,8 @@
       "project1": {
         "title": "Smart greenhouses",
         "description": "This is a description for Project One.",
-        "screenshot": "/images/project1.jpg",
-        "animation": "/images/project1.gif",
+        "screenshot": "/src/assets/images/1_webDev/project1_preview.jpg",
+        "animation": "/src/assets/images/1_webDev/project1_animation.gif",
         "link": "greenhouse-react.vercel.app",
         "tags": ["HTML", "CSS", "JavaScript"]
       }
