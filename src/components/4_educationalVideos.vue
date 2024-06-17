@@ -73,7 +73,8 @@ export default {
 }
 
 .preview {
-    width: 100%;
+    border-radius: 25px;
+    width: 50%;
     height: auto;
 }
 
