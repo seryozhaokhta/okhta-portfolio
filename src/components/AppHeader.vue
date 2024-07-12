@@ -31,7 +31,7 @@
                     <button @click="setLanguage('ru')" :class="{ 'active': currentLanguage === 'ru' }">Russian</button>
                     <button @click="setLanguage('en')" :class="{ 'active': currentLanguage === 'en' }">English</button>
                 </div>
-                <button class="burger-menu" @click="toggleMenu">
+                <button class="burger-menu mobile-only" @click="toggleMenu">
                     <span :class="{ 'active': menuActive }"></span>
                     <span :class="{ 'active': menuActive }"></span>
                     <span :class="{ 'active': menuActive }"></span>
@@ -65,6 +65,7 @@ export default {
         toggleTheme() {
             this.isDarkTheme = !this.isDarkTheme;
             this.$emit('theme-toggled');
+            localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
         },
         setLanguage(lang) {
             this.currentLanguage = lang;
@@ -84,21 +85,14 @@ export default {
 <style>
 header {
     position: fixed;
-    /* Прибиваем шапку к верху страницы */
     top: 0;
-    /* Устанавливаем шапку в самый верх */
     left: 0;
-    /* Растягиваем шапку на всю ширину слева */
     right: 0;
-    /* Растягиваем шапку на всю ширину справа */
     z-index: 1000;
-    /* Устанавливаем z-index, чтобы шапка была над другими элементами */
     background-color: var(--background-default);
-    /* Фон шапки */
     color: var(--text-color-default);
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color-default);
-    /* Другие стили остаются без изменений */
 }
 
 .dark-theme header {
@@ -214,10 +208,10 @@ header {
 
 .burger-menu span {
     display: block;
-    width: 2px;
+    width: 20px;
     height: 2px;
     background-color: #333;
-    border-radius: 50%;
+    border-radius: 1px;
     transition: all 0.3s;
     transform-origin: 1px;
 }
@@ -288,7 +282,6 @@ header {
     .nav-link {
         display: block;
         font-size: 12px;
-        /* Уменьшаем размер текста для мобильной версии */
     }
 
     .icon {
@@ -300,22 +293,8 @@ header {
         display: none;
     }
 
-    .mobile-nav-link {
-        margin-bottom: 20px;
-    }
-
-    .right {
-        justify-content: flex-end;
-    }
-
-    .center {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-    }
-
     .mobile-only {
-        display: block;
+
     }
 }
 

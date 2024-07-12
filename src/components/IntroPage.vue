@@ -90,7 +90,8 @@ export default {
 .intro-name {
     font-size: 1.9rem;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.25;
+    font-weight: normal;
 }
 
 .intro-description {

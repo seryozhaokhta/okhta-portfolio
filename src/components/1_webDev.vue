@@ -52,6 +52,7 @@ export default {
 
 <style scoped>
 .web-dev-page {
+    text-align: left;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;

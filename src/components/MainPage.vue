@@ -6,14 +6,14 @@
         <div class="section-container">
             <div class="cell" v-for="(section, index) in sections" :key="index">
                 <div class="header-container" @click.stop="navigate(section.key)">
-                    <h1>
+                    <h2>
                         {{ $t(`mainPage.sections.${section.key}.title`) }}
                         <div class="icon-container" @click.stop="toggleDescription(index)">
                             <img v-if="!section.expanded" class="expand-icon" src="@/assets/expand_more.svg"
                                 alt="Expand">
                             <img v-else class="collapse-icon" src="@/assets/expand_less.svg" alt="Collapse">
                         </div>
-                    </h1>
+                    </h2>
                 </div>
                 <p v-if="section.expanded" class="description">{{ $t(`mainPage.sections.${section.key}.description`) }}
                 </p>
@@ -74,8 +74,8 @@ export default {
 .cell {
     text-align: left;
     padding: 10px;
-    border: 1px solid var(--border-color-default);
-    border-radius: 8px;
+    border-bottom: 1px solid var(--border-color-default);
+    border-radius: 0;
     background: var(--background-default);
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -100,7 +100,6 @@ export default {
 
 .description {
     transition: max-height 0.3s ease, opacity 0.3s ease;
-    max-width: 65%;
     line-height: 1.6;
     font-variant-ligatures: common-ligatures;
     font-feature-settings: "liga";

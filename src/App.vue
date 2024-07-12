@@ -2,14 +2,14 @@
 
 <template>
   <div id="app" :class="{ 'dark-theme': isDarkTheme }">
-    <AppHeader @theme-toggled="isDarkTheme = !isDarkTheme" />
+    <AppHeader @theme-toggled="toggleTheme" />
     <router-view :isDarkTheme="isDarkTheme" />
     <AppFooter />
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 
@@ -19,8 +19,18 @@ export default {
     AppFooter,
   },
   setup() {
-    const isDarkTheme = ref(false);
-    return { isDarkTheme };
+    const isDarkTheme = ref(localStorage.getItem('theme') === 'dark');
+
+    const toggleTheme = () => {
+      isDarkTheme.value = !isDarkTheme.value;
+      localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
+    };
+
+    watch(isDarkTheme, (newVal) => {
+      document.body.className = newVal ? 'dark-theme' : '';
+    });
+
+    return { isDarkTheme, toggleTheme };
   },
 };
 </script>
