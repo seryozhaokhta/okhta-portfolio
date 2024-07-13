@@ -3,7 +3,9 @@
 <template>
   <div id="app" :class="{ 'dark-theme': isDarkTheme }">
     <AppHeader @theme-toggled="toggleTheme" />
-    <router-view :isDarkTheme="isDarkTheme" />
+    <div class="content">
+      <router-view :isDarkTheme="isDarkTheme" />
+    </div>
     <AppFooter />
   </div>
 </template>
@@ -36,6 +38,13 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,7 +57,7 @@ export default {
   padding-top: 70px;
 }
 
-main {
+.content {
   flex: 1;
 }
 </style>

@@ -47,6 +47,7 @@ export default {
     color: var(--text-color-default);
     padding: 20px;
     border-top: 1px solid var(--border-color-default);
+    flex-shrink: 0;
 }
 
 .dark-theme .footer {

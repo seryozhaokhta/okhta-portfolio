@@ -184,5 +184,17 @@
         "description": "I am studying several languages: CSS, JavaScript, Java, and Python. I am considering developing my own application, so it is important for me to understand the capabilities offered by each of these languages."
       }
     ]
+  },
+  "pastPage": {
+    "title": "Past Projects",
+    "description": "Description of past projects."
+  },
+  "todayPage": {
+    "title": "Current Projects",
+    "description": "Description of current projects."
+  },
+  "sketchesPage": {
+    "title": "Sketches",
+    "description": "Description of sketches."
   }
 }

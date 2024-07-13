@@ -12,15 +12,15 @@
                 </router-link>
             </div>
             <div class="center">
-                <a href="#" class="nav-link">
+                <router-link to="/past" class="nav-link">
                     <img :src="require('../assets/arrow_lf.svg')" alt="Arrow" class="icon"> {{ $t('nav.past') }}
-                </a>
-                <a href="#" class="nav-link">
+                </router-link>
+                <router-link to="/today" class="nav-link">
                     <img :src="require('../assets/arrow_lf.svg')" alt="Arrow" class="icon"> {{ $t('nav.today') }}
-                </a>
-                <a href="#" class="nav-link">
+                </router-link>
+                <router-link to="/sketches" class="nav-link">
                     <img :src="require('../assets/arrow_lf.svg')" alt="Arrow" class="icon"> {{ $t('nav.sketches') }}
-                </a>
+                </router-link>
             </div>
             <div class="right">
                 <button class="toggle-button" @click="toggleTheme">
@@ -46,6 +46,7 @@
         </div>
     </header>
 </template>
+
 
 <script>
 export default {
@@ -291,10 +292,6 @@ header {
 
     .desktop-only {
         display: none;
-    }
-
-    .mobile-only {
-
     }
 }
 
