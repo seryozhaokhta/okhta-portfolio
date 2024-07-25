@@ -4,7 +4,6 @@
     <div class="sketches-page">
         <h1>{{ $t('sketchesPage.title') }}</h1>
         <p>{{ $t('sketchesPage.description') }}</p>
-        <!-- Добавьте здесь контент страницы "sketches" -->
     </div>
 </template>
 

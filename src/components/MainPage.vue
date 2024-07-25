@@ -1,5 +1,5 @@
 <!-- MainPage.vue -->
- 
+
 <template>
     <main class="main">
         <IntroPage :isDarkTheme="isDarkTheme" />
@@ -7,7 +7,7 @@
             <div class="cell" v-for="(section, index) in sections" :key="index">
                 <div class="header-container" @click.stop="navigate(section.key)">
                     <h2>
-                        {{ $t(`mainPage.sections.${section.key}.title`) }}
+                        {{ t(`mainPage.sections.${section.key}.title`) }}
                         <div class="icon-container" @click.stop="toggleDescription(index)">
                             <img v-if="!section.expanded" class="expand-icon" src="@/assets/expand_more.svg"
                                 alt="Expand">
@@ -15,47 +15,39 @@
                         </div>
                     </h2>
                 </div>
-                <p v-if="section.expanded" class="description">{{ $t(`mainPage.sections.${section.key}.description`) }}
+                <p v-if="section.expanded" class="description">{{ t(`mainPage.sections.${section.key}.description`) }}
                 </p>
             </div>
         </div>
     </main>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import IntroPage from './IntroPage.vue';
 
-export default {
-    name: 'MainPage',
-    components: {
-        IntroPage,
-    },
-    setup() {
-        const router = useRouter();
-        const isDarkTheme = ref(false);
+const { t } = useI18n();
+const router = useRouter();
+const isDarkTheme = ref(false);
 
-        const sections = ref([
-            { key: 'website_development', expanded: false },
-            { key: 'envisioning_information', expanded: false },
-            { key: 'cgi', expanded: false },
-            { key: 'educational_videos', expanded: false }, // Добавленная секция
-            { key: 'app_drafts', expanded: false }, // Добавленная секция
-            { key: 'about_me', expanded: false }, // Добавленная секция
-        ]);
+const sections = ref([
+    { key: 'website_development', expanded: false },
+    { key: 'envisioning_information', expanded: false },
+    { key: 'cgi', expanded: false },
+    { key: 'educational_videos', expanded: false },
+    { key: 'app_drafts', expanded: false },
+    { key: 'about_me', expanded: false },
+]);
 
-        const navigate = (key) => {
-            console.log("Trying to navigate to:", key);
-            router.push({ name: key });
-        };
+const navigate = (key) => {
+    console.log("Trying to navigate to:", key);
+    router.push({ name: key });
+};
 
-        const toggleDescription = (index) => {
-            sections.value[index].expanded = !sections.value[index].expanded;
-        };
-
-        return { isDarkTheme, sections, navigate, toggleDescription };
-    },
+const toggleDescription = (index) => {
+    sections.value[index].expanded = !sections.value[index].expanded;
 };
 </script>
 

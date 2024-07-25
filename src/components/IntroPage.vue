@@ -14,33 +14,27 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'IntroPage',
-    data() {
-        return {
-            isHovered: false,
-        };
-    },
-    computed: {
-        originalName() {
-            return this.$t('intro.name');
-        },
-        modifiedName() {
-            const currentLocale = this.$i18n.locale; // Получаем текущий язык интерфейса
-            if (currentLocale === 'ru') {
-                return this.originalName.replace('Oхта', 'Óхта'); // Здесь латинская «О» (как и в базах), а не кириллическая!
-            } else if (currentLocale === 'en') {
-                return this.originalName.replace('Okhta', 'Ókhta');
-            }
-            return this.originalName; // Возвращаем оригинальное имя, если язык не определен
-        }
-    },
-    methods: {
-        hoverName(hover) {
-            this.isHovered = hover;
-        },
-    },
+<script setup>
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
+const isHovered = ref(false);
+
+const originalName = computed(() => t('intro.name'));
+
+const modifiedName = computed(() => {
+    const currentLocale = locale.value;
+    if (currentLocale === 'ru') {
+        return originalName.value.replace('Oхта', 'Óхта');
+    } else if (currentLocale === 'en') {
+        return originalName.value.replace('Okhta', 'Ókhta');
+    }
+    return originalName.value;
+});
+
+const hoverName = (hover) => {
+    isHovered.value = hover;
 };
 </script>
 
@@ -104,10 +98,8 @@ export default {
     transition: all 0.5s ease;
     will-change: transform;
     backface-visibility: hidden;
-    /* пытаемся предотвратить мелькания при анимации */
     -webkit-font-smoothing: subpixel-antialiased;
 }
-
 
 .name-part:hover {
     transform: skewX(-14deg);

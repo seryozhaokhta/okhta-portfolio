@@ -4,7 +4,6 @@
     <div class="today-page">
         <h1>{{ $t('todayPage.title') }}</h1>
         <p>{{ $t('todayPage.description') }}</p>
-        <!-- Добавьте здесь контент страницы "today" -->
     </div>
 </template>
 
