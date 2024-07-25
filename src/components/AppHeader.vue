@@ -1,5 +1,4 @@
 <!-- components/AppHeader.vue -->
-
 <template>
     <header>
         <div class="container">
@@ -24,8 +23,7 @@
             </div>
             <div class="right">
                 <button class="toggle-button" @click="toggleTheme">
-                    <img :src="isDarkTheme ? require('../assets/moon.svg') : require('../assets/sun.svg')" alt="Theme"
-                        class="theme-icon">
+                    <img :src="themeIcon" alt="Theme" class="theme-icon">
                 </button>
                 <div class="language-toggle desktop-only">
                     <button @click="setLanguage('ru')" :class="{ 'active': currentLanguage === 'ru' }">Russian</button>
@@ -55,11 +53,17 @@ const { locale } = useI18n();
 const isDarkTheme = ref(localStorage.getItem('theme') === 'dark');
 const currentLanguage = ref(localStorage.getItem('locale') || 'en');
 const menuActive = ref(false);
+const themeIcon = ref(isDarkTheme.value ? require('../assets/moon.svg') : require('../assets/sun.svg'));
+
+const updateThemeIcon = () => {
+    themeIcon.value = isDarkTheme.value ? require('../assets/moon.svg') : require('../assets/sun.svg');
+};
 
 const toggleTheme = () => {
     isDarkTheme.value = !isDarkTheme.value;
     localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
     document.body.classList.toggle('dark-theme', isDarkTheme.value);
+    updateThemeIcon();
 };
 
 const setLanguage = (lang) => {
@@ -78,9 +82,9 @@ watch(locale, (newLocale) => {
 
 onMounted(() => {
     document.body.classList.toggle('dark-theme', isDarkTheme.value);
+    updateThemeIcon();
 });
 </script>
-
 
 <style>
 header {
@@ -300,4 +304,3 @@ header {
     }
 }
 </style>
-
