@@ -19,34 +19,23 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-// Вместо импорта каждого изображения, создадим объект с путями:
+const { tm } = useI18n();
+
+const webDevProjects = computed(() => tm('webDev.projects'));
+
 const projectImages = {
     'project1_preview.jpg': require('@/assets/images/1_webDev/project1_preview.jpg'),
     'project1_animation.gif': require('@/assets/images/1_webDev/project1_animation.gif')
 };
 
-export default {
-    name: "webDev",
-    setup() {
-        const { tm } = useI18n();
-
-        const webDevProjects = computed(() => tm('webDev.projects'));
-
-        const getImageSrc = (imagePath) => {
-            // Ищем изображение в объекте projectImages, 
-            // если не находим - возвращаем исходный путь
-            return projectImages[imagePath.split('/').pop()] || imagePath;
-        };
-
-        return {
-            webDevProjects,
-            getImageSrc
-        };
-    }
+const getImageSrc = (imagePath) => {
+    // Ищем изображение в объекте projectImages, 
+    // если не находим - возвращаем исходный путь
+    return projectImages[imagePath.split('/').pop()] || imagePath;
 };
 </script>
 

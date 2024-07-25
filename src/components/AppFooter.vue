@@ -8,34 +8,34 @@
         </button>
         <div class="social-links">
             <a href="#" class="social-link">
-                <img :src="require('../assets/github.svg')" alt="Github" class="social-icon">
+                <img :src="require('@/assets/github.svg')" alt="Github" class="social-icon">
             </a>
             <a href="#" class="social-link">
-                <img :src="require('../assets/linkedin.svg')" alt="LinkedIn" class="social-icon">
+                <img :src="require('@/assets/linkedin.svg')" alt="LinkedIn" class="social-icon">
             </a>
             <a href="#" class="social-link">
-                <img :src="require('../assets/youtube.svg')" alt="YouTube" class="social-icon">
+                <img :src="require('@/assets/youtube.svg')" alt="YouTube" class="social-icon">
             </a>
         </div>
     </footer>
 </template>
 
-<script>
-export default {
-    methods: {
-        copyToClipboard(email) {
-            navigator.clipboard.writeText(email).then(() => {
-                const emailText = document.getElementById('email-text');
-                emailText.textContent = this.$t('footer.copy');
-                setTimeout(() => {
-                    emailText.textContent = email;
-                }, 2000);
-            }).catch(err => {
-                console.error('Could not copy text: ', err);
-            });
-        }
-    }
-}
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
+const copyToClipboard = (email) => {
+    navigator.clipboard.writeText(email).then(() => {
+        const emailText = document.getElementById('email-text');
+        emailText.textContent = t('footer.copy');
+        setTimeout(() => {
+            emailText.textContent = email;
+        }, 2000);
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+};
 </script>
 
 <style scoped>

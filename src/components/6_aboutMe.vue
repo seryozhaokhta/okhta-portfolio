@@ -18,7 +18,9 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import editingIcon from '@/assets/pencil200.svg';
 import interactiveDesignIcon from '@/assets/bero1re.svg';
 import webDevelopmentIcon from '@/assets/web200.svg';
@@ -26,35 +28,26 @@ import design3DIcon from '@/assets/cube200.svg';
 import dataVisualizationIcon from '@/assets/data200.svg';
 import programmingIcon from '@/assets/code200.svg';
 
-export default {
-    name: 'AboutMePage',
-    data() {
-        return {
-            icons: [
-                editingIcon,
-                interactiveDesignIcon,
-                webDevelopmentIcon,
-                design3DIcon,
-                dataVisualizationIcon,
-                programmingIcon,
-            ],
-            skillsLength: 6,
-        };
-    },
-    computed: {
-        skills() {
-            // Создаем массив заглушек, потому что реальные данные загружаются через i18n
-            return Array.from({ length: this.skillsLength }, (_, i) => ({
-                title: this.$t(`aboutMePage.skills.${i}.title`),
-                description: this.$t(`aboutMePage.skills.${i}.description`)
-            }));
-        }
-    },
-    methods: {
-        getIconPath(index) {
-            return this.icons[index];
-        },
-    },
+const { t } = useI18n();
+const icons = [
+    editingIcon,
+    interactiveDesignIcon,
+    webDevelopmentIcon,
+    design3DIcon,
+    dataVisualizationIcon,
+    programmingIcon,
+];
+const skillsLength = 6;
+
+const skills = computed(() =>
+    Array.from({ length: skillsLength }, (_, i) => ({
+        title: t(`aboutMePage.skills.${i}.title`),
+        description: t(`aboutMePage.skills.${i}.description`)
+    }))
+);
+
+const getIconPath = (index) => {
+    return icons[index];
 };
 </script>
 

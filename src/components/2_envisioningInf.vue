@@ -14,20 +14,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-export default {
-    name: "EnvisioningInfPage",
-    setup() {
-        const { t, tm } = useI18n();
-        return {
-            posts: computed(() => tm('envisioningInf.posts')),
-            t
-        };
-    }
-};
+const { t, tm } = useI18n();
+const posts = computed(() => tm('envisioningInf.posts'));
 </script>
 
 <style scoped>

@@ -47,41 +47,40 @@
     </header>
 </template>
 
+<script setup>
+import { ref, watch, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-<script>
-export default {
-    data() {
-        return {
-            isDarkTheme: false,
-            currentLanguage: localStorage.getItem('locale') || 'en',
-            menuActive: false,
-        };
-    },
-    watch: {
-        '$i18n.locale'(newLocale) {
-            this.currentLanguage = newLocale;
-        }
-    },
-    methods: {
-        toggleTheme() {
-            this.isDarkTheme = !this.isDarkTheme;
-            this.$emit('theme-toggled');
-            localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
-        },
-        setLanguage(lang) {
-            this.currentLanguage = lang;
-            this.$i18n.locale = lang;
-            localStorage.setItem('locale', lang);
-        },
-        toggleMenu() {
-            this.menuActive = !this.menuActive;
-        },
-    },
-    created() {
-        this.isDarkTheme = localStorage.getItem('theme') === 'dark';
-    },
+const { locale } = useI18n();
+const isDarkTheme = ref(localStorage.getItem('theme') === 'dark');
+const currentLanguage = ref(localStorage.getItem('locale') || 'en');
+const menuActive = ref(false);
+
+const toggleTheme = () => {
+    isDarkTheme.value = !isDarkTheme.value;
+    localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
+    document.body.classList.toggle('dark-theme', isDarkTheme.value);
 };
+
+const setLanguage = (lang) => {
+    currentLanguage.value = lang;
+    locale.value = lang;
+    localStorage.setItem('locale', lang);
+};
+
+const toggleMenu = () => {
+    menuActive.value = !menuActive.value;
+};
+
+watch(locale, (newLocale) => {
+    currentLanguage.value = newLocale;
+});
+
+onMounted(() => {
+    document.body.classList.toggle('dark-theme', isDarkTheme.value);
+});
 </script>
+
 
 <style>
 header {
@@ -301,3 +300,4 @@ header {
     }
 }
 </style>
+

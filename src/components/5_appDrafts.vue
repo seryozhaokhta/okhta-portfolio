@@ -22,15 +22,12 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "appDrafts",
-    computed: {
-        widgets() {
-            return this.$i18n?.messages?.[this.$i18n.locale]?.appDrafts.widgets || [];
-        }
-    }
-};
+<script setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { tm } = useI18n();
+const widgets = computed(() => tm('appDrafts.widgets') || []);
 </script>
 
 <style scoped>

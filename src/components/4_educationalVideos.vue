@@ -22,41 +22,30 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-export default {
-    name: "EducationalVideosPage",
-    setup() {
-        const { t, tm } = useI18n();
+const { t, tm } = useI18n();
 
-        // Загрузка видео с переводом и добавление свойств изображения
-        const loadVideos = () => {
-            const videos = tm('educationalVideos.videos');
-            return videos.map(video => ({
-                ...video,
-                imageName: video.id === 'video1' ? 'Sumer.jpg' : 'Babylon.jpg',
-                imageLoaded: false
-            }));
-        };
-
-        // Обработка загрузки изображения
-        const imageLoaded = (videoId) => {
-            const video = videos.value.find(v => v.id === videoId);
-            if (video) video.imageLoaded = true;
-        };
-
-        // Вычисляемое свойство для загрузки видео
-        const videos = computed(() => loadVideos());
-
-        onMounted(() => {
-            // Дополнительные действия после монтирования компонента
-        });
-
-        return { videos, t, imageLoaded };
-    }
+const loadVideos = () => {
+    const videos = tm('educationalVideos.videos');
+    return videos.map(video => ({
+        ...video,
+        imageName: video.id === 'video1' ? 'Sumer.jpg' : 'Babylon.jpg',
+        imageLoaded: false
+    }));
 };
+
+const imageLoaded = (videoId) => {
+    const video = videos.value.find(v => v.id === videoId);
+    if (video) video.imageLoaded = true;
+};
+
+const videos = computed(() => loadVideos());
+
+onMounted(() => {
+});
 </script>
 
 <style scoped>
