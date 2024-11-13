@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue';
-import AppHeader from './components/AppHeader.vue';
-import AppFooter from './components/AppFooter.vue';
+import { ref, watch } from "vue";
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   components: {
@@ -21,15 +21,15 @@ export default {
     AppFooter,
   },
   setup() {
-    const isDarkTheme = ref(localStorage.getItem('theme') === 'dark');
+    const isDarkTheme = ref(localStorage.getItem("theme") === "dark");
 
     const toggleTheme = () => {
       isDarkTheme.value = !isDarkTheme.value;
-      localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
+      localStorage.setItem("theme", isDarkTheme.value ? "dark" : "light");
     };
 
     watch(isDarkTheme, (newVal) => {
-      document.body.className = newVal ? 'dark-theme' : '';
+      document.body.className = newVal ? "dark-theme" : "";
     });
 
     return { isDarkTheme, toggleTheme };
@@ -46,7 +46,7 @@ body {
 }
 
 #app {
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
