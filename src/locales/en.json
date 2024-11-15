@@ -195,6 +195,8 @@
   },
   "sketchesPage": {
     "title": "Sketches",
-    "description": "Description of sketches."
+    "description": "My sketches on p5js",
+    "sketchNumber": "Sketch {number}",
+    "viewOnOpenProcessing": "View on OpenProcessing"
   }
 }

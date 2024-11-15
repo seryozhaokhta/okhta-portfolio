@@ -195,6 +195,8 @@
   },
   "sketchesPage": {
     "title": "Наброски",
-    "description": "Описание эскизов."
+    "description": "Мои наброски на p5js",
+    "sketchNumber": "Набросок {number}",
+    "viewOnOpenProcessing": "Посмотреть на OpenProcessing"
   }
 }
