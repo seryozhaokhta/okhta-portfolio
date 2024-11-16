@@ -1,4 +1,5 @@
-<!-- components/AppHeader.vue -->
+<!-- src/components/AppHeader.vue -->
+
 <template>
   <header>
     <div class="container">
@@ -24,7 +25,7 @@
             alt="Arrow"
             class="icon"
           />
-          {{ $t("nav.past") }}
+          {{ $t('nav.past') }}
         </router-link>
         <router-link to="/today" class="nav-link">
           <img
@@ -32,7 +33,7 @@
             alt="Arrow"
             class="icon"
           />
-          {{ $t("nav.today") }}
+          {{ $t('nav.today') }}
         </router-link>
         <router-link to="/sketches" class="nav-link">
           <img
@@ -40,11 +41,11 @@
             alt="Arrow"
             class="icon"
           />
-          {{ $t("nav.sketches") }}
+          {{ $t('nav.sketches') }}
         </router-link>
       </div>
       <div class="right">
-        <button class="toggle-button" @click="toggleTheme">
+        <button class="toggle-button" @click="$emit('theme-toggled')">
           <img :src="themeIcon" alt="Theme" class="theme-icon" />
         </button>
         <div class="language-toggle desktop-only">
@@ -88,53 +89,41 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+// Получаем пропс isDarkTheme
+const props = defineProps({
+  isDarkTheme: {
+    type: Boolean,
+    required: true,
+  },
+});
 
 const { locale } = useI18n();
-const isDarkTheme = ref(localStorage.getItem("theme") === "dark");
-const currentLanguage = ref(localStorage.getItem("locale") || "en");
+const currentLanguage = ref(localStorage.getItem('locale') || 'en');
 const menuActive = ref(false);
-const themeIcon = ref(
-  isDarkTheme.value
-    ? require("../assets/moon.svg")
-    : require("../assets/sun.svg")
-);
 
-const updateThemeIcon = () => {
-  themeIcon.value = isDarkTheme.value
-    ? require("../assets/moon.svg")
-    : require("../assets/sun.svg");
-};
-
-const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value;
-  localStorage.setItem("theme", isDarkTheme.value ? "dark" : "light");
-  document.body.classList.toggle("dark-theme", isDarkTheme.value);
-  updateThemeIcon();
-};
+// Вычисляем иконку темы на основе пропса isDarkTheme
+const themeIcon = computed(() => {
+  return props.isDarkTheme
+    ? require('../assets/moon.svg')
+    : require('../assets/sun.svg');
+});
 
 const setLanguage = (lang) => {
   currentLanguage.value = lang;
   locale.value = lang;
-  localStorage.setItem("locale", lang);
+  localStorage.setItem('locale', lang);
 };
 
 const toggleMenu = () => {
   menuActive.value = !menuActive.value;
 };
-
-watch(locale, (newLocale) => {
-  currentLanguage.value = newLocale;
-});
-
-onMounted(() => {
-  document.body.classList.toggle("dark-theme", isDarkTheme.value);
-  updateThemeIcon();
-});
 </script>
 
 <style>
+/* Ваши стили остаются без изменений */
 header {
   position: fixed;
   top: 0;
@@ -192,7 +181,7 @@ header {
 }
 
 .nav-link:hover {
-  color: var(--text-color-hover);
+  color: var(--link-color-hover);
 }
 
 .icon {

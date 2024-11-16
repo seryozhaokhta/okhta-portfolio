@@ -8,7 +8,7 @@
       @click="copyToClipboard($t('footer.email'))"
     >
       <img class="copy-icon" src="@/assets/to_copy.svg" alt="Copy" />
-      <span id="email-text">{{ $t("footer.email") }}</span>
+      <span id="email-text">{{ $t('footer.email') }}</span>
     </button>
     <div class="social-links">
       <a href="#" class="social-link">
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { useI18n } from "vue-i18n";
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
@@ -45,14 +45,14 @@ const copyToClipboard = (email) => {
   navigator.clipboard
     .writeText(email)
     .then(() => {
-      const emailText = document.getElementById("email-text");
-      emailText.textContent = t("footer.copy");
+      const emailText = document.getElementById('email-text');
+      emailText.textContent = t('footer.copy');
       setTimeout(() => {
         emailText.textContent = email;
       }, 2000);
     })
     .catch((err) => {
-      console.error("Could not copy text: ", err);
+      console.error('Could not copy text: ', err);
     });
 };
 </script>

@@ -8,9 +8,9 @@
         alt="Моё фото"
         class="profile-picture"
       />
-      <h2>{{ $t("aboutMePage.greeting") }}</h2>
-      <h3>{{ $t("aboutMePage.intro") }}</h3>
-      <h3>{{ $t("aboutMePage.skillsTitle") }}</h3>
+      <h2>{{ $t('aboutMePage.greeting') }}</h2>
+      <h3>{{ $t('aboutMePage.intro') }}</h3>
+      <h3>{{ $t('aboutMePage.skillsTitle') }}</h3>
       <div v-for="(skill, index) in skills" :key="index" class="skill">
         <img :src="getIconPath(index)" :alt="skill.title" class="icon" />
         <div class="skill-text">
@@ -23,14 +23,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
-import editingIcon from "@/assets/pencil200.svg";
-import interactiveDesignIcon from "@/assets/bero1re.svg";
-import webDevelopmentIcon from "@/assets/web200.svg";
-import design3DIcon from "@/assets/cube200.svg";
-import dataVisualizationIcon from "@/assets/data200.svg";
-import programmingIcon from "@/assets/code200.svg";
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import editingIcon from '@/assets/pencil200.svg';
+import interactiveDesignIcon from '@/assets/bero1re.svg';
+import webDevelopmentIcon from '@/assets/web200.svg';
+import design3DIcon from '@/assets/cube200.svg';
+import dataVisualizationIcon from '@/assets/data200.svg';
+import programmingIcon from '@/assets/code200.svg';
 
 const { t } = useI18n();
 const icons = [

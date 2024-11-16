@@ -2,8 +2,8 @@
 
 <template>
   <div class="educational-videos-page">
-    <h1>{{ t("educationalVideos.title") }}</h1>
-    <p>{{ t("educationalVideos.description") }}</p>
+    <h1>{{ t('educationalVideos.title') }}</h1>
+    <p>{{ t('educationalVideos.description') }}</p>
     <div class="videos" v-if="videos.length">
       <div class="video" v-for="video in videos" :key="video.id">
         <a :href="video.youtubeLink" target="_blank">
@@ -24,21 +24,21 @@
         </div>
       </div>
     </div>
-    <p v-else>{{ t("educationalVideos.noVideos") }}</p>
+    <p v-else>{{ t('educationalVideos.noVideos') }}</p>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t, tm } = useI18n();
 
 const loadVideos = () => {
-  const videos = tm("educationalVideos.videos");
+  const videos = tm('educationalVideos.videos');
   return videos.map((video) => ({
     ...video,
-    imageName: video.id === "video1" ? "Sumer.jpg" : "Babylon.jpg",
+    imageName: video.id === 'video1' ? 'Sumer.jpg' : 'Babylon.jpg',
     imageLoaded: false,
   }));
 };

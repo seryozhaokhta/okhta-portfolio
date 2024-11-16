@@ -1,19 +1,19 @@
-<!-- App.vue -->
+<!-- src/App.vue -->
 
 <template>
   <div id="app" :class="{ 'dark-theme': isDarkTheme }">
-    <AppHeader @theme-toggled="toggleTheme" />
+    <AppHeader @theme-toggled="toggleTheme" :isDarkTheme="isDarkTheme" />
     <div class="content">
-      <router-view :isDarkTheme="isDarkTheme" />
+      <router-view />
     </div>
     <AppFooter />
   </div>
 </template>
 
 <script>
-import { ref, watch } from "vue";
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
+import { ref, watch, onMounted } from 'vue';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   components: {
@@ -21,15 +21,26 @@ export default {
     AppFooter,
   },
   setup() {
-    const isDarkTheme = ref(localStorage.getItem("theme") === "dark");
+    // Инициализация темы из localStorage
+    const isDarkTheme = ref(localStorage.getItem('theme') === 'dark');
 
+    // Функция для переключения темы
     const toggleTheme = () => {
       isDarkTheme.value = !isDarkTheme.value;
-      localStorage.setItem("theme", isDarkTheme.value ? "dark" : "light");
+      localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
     };
 
+    // Следим за изменениями темы и добавляем/удаляем класс на body
     watch(isDarkTheme, (newVal) => {
-      document.body.className = newVal ? "dark-theme" : "";
+      document.documentElement.classList.toggle('dark-theme', newVal);
+    });
+
+    // Устанавливаем начальное состояние темы при монтировании
+    onMounted(() => {
+      document.documentElement.classList.toggle(
+        'dark-theme',
+        isDarkTheme.value
+      );
     });
 
     return { isDarkTheme, toggleTheme };
@@ -38,6 +49,7 @@ export default {
 </script>
 
 <style>
+/* Стили остались без изменений */
 html,
 body {
   height: 100%;
@@ -46,7 +58,7 @@ body {
 }
 
 #app {
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

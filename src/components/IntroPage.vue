@@ -4,7 +4,7 @@
   <div class="intro-page">
     <div class="intro-content">
       <h1 class="intro-name">
-        {{ $t("intro.preName") }}
+        {{ $t('intro.preName') }}
         <span
           @mouseenter="hoverName(true)"
           @mouseleave="hoverName(false)"
@@ -14,28 +14,28 @@
             modifiedName
           }}</span>
           <span v-else>{{ originalName }}</span> </span
-        >{{ $t("intro.postName") }}
+        >{{ $t('intro.postName') }}
       </h1>
-      <p class="intro-description">{{ $t("intro.welcome") }}</p>
+      <p class="intro-description">{{ $t('intro.welcome') }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n();
 const isHovered = ref(false);
 
-const originalName = computed(() => t("intro.name"));
+const originalName = computed(() => t('intro.name'));
 
 const modifiedName = computed(() => {
   const currentLocale = locale.value;
-  if (currentLocale === "ru") {
-    return originalName.value.replace("Oхта", "Óхта");
-  } else if (currentLocale === "en") {
-    return originalName.value.replace("Okhta", "Ókhta");
+  if (currentLocale === 'ru') {
+    return originalName.value.replace('Oхта', 'Óхта');
+  } else if (currentLocale === 'en') {
+    return originalName.value.replace('Okhta', 'Ókhta');
   }
   return originalName.value;
 });
@@ -47,7 +47,7 @@ const hoverName = (hover) => {
 
 <style scoped>
 .intro-page {
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   position: relative;
   width: 100%;
   height: 100vh;

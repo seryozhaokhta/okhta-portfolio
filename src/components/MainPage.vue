@@ -33,26 +33,26 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
-import IntroPage from "./IntroPage.vue";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import IntroPage from './IntroPage.vue';
 
 const { t } = useI18n();
 const router = useRouter();
 const isDarkTheme = ref(false);
 
 const sections = ref([
-  { key: "website_development", expanded: false },
-  { key: "envisioning_information", expanded: false },
-  { key: "cgi", expanded: false },
-  { key: "educational_videos", expanded: false },
-  { key: "app_drafts", expanded: false },
-  { key: "about_me", expanded: false },
+  { key: 'website_development', expanded: false },
+  { key: 'envisioning_information', expanded: false },
+  { key: 'cgi', expanded: false },
+  { key: 'educational_videos', expanded: false },
+  { key: 'app_drafts', expanded: false },
+  { key: 'about_me', expanded: false },
 ]);
 
 const navigate = (key) => {
-  console.log("Trying to navigate to:", key);
+  console.log('Trying to navigate to:', key);
   router.push({ name: key });
 };
 
@@ -104,7 +104,7 @@ const toggleDescription = (index) => {
   transition: max-height 0.3s ease, opacity 0.3s ease;
   line-height: 1.6;
   font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga";
+  font-feature-settings: 'liga';
   overflow-wrap: break-word;
   hyphens: auto;
   text-align: balance;

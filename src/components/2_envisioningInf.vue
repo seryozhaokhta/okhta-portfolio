@@ -2,8 +2,8 @@
 
 <template>
   <div class="envisioning-inf-page">
-    <h1>{{ t("envisioningInf.title") }}</h1>
-    <p>{{ t("envisioningInf.description") }}</p>
+    <h1>{{ t('envisioningInf.title') }}</h1>
+    <p>{{ t('envisioningInf.description') }}</p>
     <div class="posts">
       <div class="post" v-for="post in posts" :key="post.id">
         <h2>{{ post.title }}</h2>
@@ -15,11 +15,11 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t, tm } = useI18n();
-const posts = computed(() => tm("envisioningInf.posts"));
+const posts = computed(() => tm('envisioningInf.posts'));
 </script>
 
 <style scoped>

@@ -20,8 +20,11 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.31.0",
+    "prettier": "^2.8.8",
     "three": "^0.134.0"
   },
   "eslintConfig": {
@@ -31,17 +34,29 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false
     },
-    "rules": {}
+    "rules": {
+      "no-undef": "off",
+      "vue/script-setup-uses-vars": "error"
+    }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "prettier": {
+    "endOfLine": "auto",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
+  }
 }

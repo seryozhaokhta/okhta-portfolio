@@ -2,8 +2,8 @@
 
 <template>
   <div class="web-dev-page">
-    <h1>{{ $t("webDev.title") }}</h1>
-    <p>{{ $t("webDev.description") }}</p>
+    <h1>{{ $t('webDev.title') }}</h1>
+    <p>{{ $t('webDev.description') }}</p>
     <div class="projects">
       <div class="project" v-for="(project, id) in webDevProjects" :key="id">
         <h2>{{ $t(`webDev.projects.${id}.title`) }}</h2>
@@ -11,7 +11,7 @@
         <img :src="getImageSrc(project.screenshot)" alt="Screenshot" />
         <img :src="getImageSrc(project.animation)" alt="Animation" />
         <a :href="'https://' + project.link" target="_blank">{{
-          $t("webDev.learnMore")
+          $t('webDev.learnMore')
         }}</a>
         <div class="tags">
           <span class="tag" v-for="tag in project.tags" :key="tag">{{
@@ -24,22 +24,22 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { tm } = useI18n();
 
-const webDevProjects = computed(() => tm("webDev.projects"));
+const webDevProjects = computed(() => tm('webDev.projects'));
 
 const projectImages = {
-  "project1_preview.jpg": require("@/assets/images/1_webDev/project1_preview.jpg"),
-  "project1_animation.gif": require("@/assets/images/1_webDev/project1_animation.gif"),
+  'project1_preview.jpg': require('@/assets/images/1_webDev/project1_preview.jpg'),
+  'project1_animation.gif': require('@/assets/images/1_webDev/project1_animation.gif'),
 };
 
 const getImageSrc = (imagePath) => {
   // Ищем изображение в объекте projectImages,
   // если не находим - возвращаем исходный путь
-  return projectImages[imagePath.split("/").pop()] || imagePath;
+  return projectImages[imagePath.split('/').pop()] || imagePath;
 };
 </script>
 

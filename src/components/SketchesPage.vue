@@ -2,15 +2,15 @@
 
 <template>
   <div class="sketches-page">
-    <h1>{{ t("sketchesPage.title") }}</h1>
-    <p>{{ t("sketchesPage.description") }}</p>
+    <h1>{{ t('sketchesPage.title') }}</h1>
+    <p>{{ t('sketchesPage.description') }}</p>
     <div class="sketches-grid">
       <div
         v-for="(sketch, index) in sketches"
         :key="sketch.id"
         class="sketch-card"
       >
-        <h2>{{ t("sketchesPage.sketchNumber", { number: index + 1 }) }}</h2>
+        <h2>{{ t('sketchesPage.sketchNumber', { number: index + 1 }) }}</h2>
         <div class="sketch-iframe-container">
           <iframe
             :src="sketch.embedUrl"
@@ -20,7 +20,7 @@
           ></iframe>
         </div>
         <a :href="sketch.url" target="_blank" rel="noopener">
-          {{ t("sketchesPage.viewOnOpenProcessing") }}
+          {{ t('sketchesPage.viewOnOpenProcessing') }}
         </a>
       </div>
     </div>
@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 const sketches = ref([]);
@@ -39,8 +39,8 @@ const fetchSketches = () => {
   sketches.value = [
     {
       id: 1950042,
-      embedUrl: "https://www.openprocessing.org/sketch/1950042/embed/",
-      url: "https://www.openprocessing.org/sketch/1950042/",
+      embedUrl: 'https://www.openprocessing.org/sketch/1950042/embed/',
+      url: 'https://www.openprocessing.org/sketch/1950042/',
     },
   ];
 };

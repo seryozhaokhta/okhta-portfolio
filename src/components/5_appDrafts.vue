@@ -2,8 +2,8 @@
 
 <template>
   <div class="app-drafts-page">
-    <h1>{{ $t("appDrafts.title") }}</h1>
-    <p>{{ $t("appDrafts.description") }}</p>
+    <h1>{{ $t('appDrafts.title') }}</h1>
+    <p>{{ $t('appDrafts.description') }}</p>
     <div class="widgets">
       <div v-for="widget in widgets" :key="widget.name" class="widget">
         <img
@@ -19,7 +19,7 @@
           class="widget-screenshot"
         />
         <p class="widget-status">
-          {{ $t("appDrafts.status") }}: {{ widget.status }}
+          {{ $t('appDrafts.status') }}: {{ widget.status }}
         </p>
         <ul class="widget-features">
           <li v-for="(feature, i) in widget.features" :key="i">
@@ -27,8 +27,8 @@
           </li>
         </ul>
         <a :href="widget.demoLink" target="_blank" class="widget-demo-link">{{
-          $t("appDrafts.demoLinkText", {
-            defaultValue: "Demo Link",
+          $t('appDrafts.demoLinkText', {
+            defaultValue: 'Demo Link',
           })
         }}</a>
       </div>
@@ -37,11 +37,11 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { tm } = useI18n();
-const widgets = computed(() => tm("appDrafts.widgets") || []);
+const widgets = computed(() => tm('appDrafts.widgets') || []);
 </script>
 
 <style scoped>

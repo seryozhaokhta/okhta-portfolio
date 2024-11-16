@@ -2,8 +2,8 @@
 
 <template>
   <div class="cgi-page">
-    <h1>{{ $t("cgi.title") }}</h1>
-    <p>{{ $t("cgi.description") }}</p>
+    <h1>{{ $t('cgi.title') }}</h1>
+    <p>{{ $t('cgi.description') }}</p>
     <div class="gallery">
       <img
         class="image"
@@ -17,9 +17,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const images = ref([{ id: 1, src: "1 521.png", alt: "Image 1" }]);
+const images = ref([{ id: 1, src: '1 521.png', alt: 'Image 1' }]);
 </script>
 
 <style scoped>
